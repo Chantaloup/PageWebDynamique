@@ -130,3 +130,14 @@ for(let i=0 ; i < nomsDisponibles.length ; i++){
 const pElementDisponible = document.createElement('p')
 pElementDisponible.innerText = "Pièces disponibles:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
+
+
+const prixMax = document.querySelector('#prixMax');
+prixMax.addEventListener('input', () => {
+    const lesPiecesFiltrees = pieces.filter((piece) => {
+        return piece.prix <= prixMax.value;
+    })
+    document.querySelector(".fiches").innerHTML = '';
+    genererPieces(lesPiecesFiltrees)
+})
+
